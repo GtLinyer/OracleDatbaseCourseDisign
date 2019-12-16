@@ -1,17 +1,12 @@
 /*
-Navicat Oracle Data Transfer
 Oracle Client Version : 12.2.0.1.0
 
-Source Server         : 三星Oracle/hxx
-Source Server Version : 120200
 Source Host           : cloud.linyer.cn:19996
 Source Schema         : HXX
 
 Target Server Type    : ORACLE
 Target Server Version : 120200
 File Encoding         : 65001
-
-Date: 2019-12-16 23:45:23
 */
 
 
@@ -391,10 +386,6 @@ ALTER TABLE "HXX"."Admin" ADD CHECK ("Aname" IS NOT NULL);
 ALTER TABLE "HXX"."Admin" ADD CHECK ("Apwd" IS NOT NULL);
 
 -- ----------------------------
--- Indexes structure for table Blood
--- ----------------------------
-
--- ----------------------------
 -- Triggers structure for table Blood
 -- ----------------------------
 CREATE OR REPLACE TRIGGER "HXX"."DELETE_BLOOD_FROM_PATIENTS" BEFORE DELETE ON "HXX"."Blood" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW ENABLE
@@ -432,10 +423,6 @@ ALTER TABLE "HXX"."Blood" ADD CHECK ("CPno" IS NOT NULL);
 ALTER TABLE "HXX"."Blood" ADD PRIMARY KEY ("Cno");
 
 -- ----------------------------
--- Indexes structure for table Departments
--- ----------------------------
-
--- ----------------------------
 -- Checks structure for table Departments
 -- ----------------------------
 ALTER TABLE "HXX"."Departments" ADD CHECK ("DPname" IS NOT NULL);
@@ -447,10 +434,6 @@ ALTER TABLE "HXX"."Departments" ADD CHECK ("DPno" IS NOT NULL);
 -- Primary Key structure for table Departments
 -- ----------------------------
 ALTER TABLE "HXX"."Departments" ADD PRIMARY KEY ("DPno");
-
--- ----------------------------
--- Indexes structure for table DocEmp
--- ----------------------------
 
 -- ----------------------------
 -- Triggers structure for table DocEmp
@@ -473,10 +456,6 @@ ALTER TABLE "HXX"."DocEmp" ADD CHECK ("Dno" IS NOT NULL);
 ALTER TABLE "HXX"."DocEmp" ADD PRIMARY KEY ("Dno");
 
 -- ----------------------------
--- Indexes structure for table Doctors
--- ----------------------------
-
--- ----------------------------
 -- Checks structure for table Doctors
 -- ----------------------------
 ALTER TABLE "HXX"."Doctors" ADD CHECK ("Dname" IS NOT NULL);
@@ -494,10 +473,6 @@ ALTER TABLE "HXX"."Doctors" ADD CHECK ("Dsex" IN ('男','女'));
 ALTER TABLE "HXX"."Doctors" ADD PRIMARY KEY ("Dno");
 
 -- ----------------------------
--- Indexes structure for table Level
--- ----------------------------
-
--- ----------------------------
 -- Checks structure for table Level
 -- ----------------------------
 ALTER TABLE "HXX"."Level" ADD CHECK ("Lname" IS NOT NULL);
@@ -510,16 +485,13 @@ ALTER TABLE "HXX"."Level" ADD CHECK ("Lno" IS NOT NULL);
 ALTER TABLE "HXX"."Level" ADD PRIMARY KEY ("Lno");
 
 -- ----------------------------
--- Indexes structure for table Patients
--- ----------------------------
-
--- ----------------------------
 -- Triggers structure for table Patients
 -- ----------------------------
 CREATE OR REPLACE TRIGGER "HXX"."ADD_PATIENTSTATUS_FROM_PATIENTS" AFTER INSERT ON "HXX"."Patients" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW ENABLE
 begin
 	insert into "PatientStatus"("Pno") values(:new."Pno");
 end Add_PatientStatus_From_Patients;
+
 -- ----------------------------
 -- Checks structure for table Patients
 -- ----------------------------
@@ -549,10 +521,6 @@ ALTER TABLE "HXX"."PatientStatus" ADD CHECK ("isStool" IS NOT NULL);
 ALTER TABLE "HXX"."PatientStatus" ADD CHECK ("isOK" IS NOT NULL);
 
 -- ----------------------------
--- Indexes structure for table Stool
--- ----------------------------
-
--- ----------------------------
 -- Triggers structure for table Stool
 -- ----------------------------
 CREATE OR REPLACE TRIGGER "HXX"."DELETE_STOOL_FROM_PATIENTS" BEFORE DELETE ON "HXX"."Stool" REFERENCING OLD AS "OLD" NEW AS "NEW" FOR EACH ROW ENABLE
@@ -580,10 +548,6 @@ ALTER TABLE "HXX"."Stool" ADD CHECK ("CPno" IS NOT NULL);
 ALTER TABLE "HXX"."Stool" ADD PRIMARY KEY ("Cno");
 
 -- ----------------------------
--- Indexes structure for table Treatment
--- ----------------------------
-
--- ----------------------------
 -- Checks structure for table Treatment
 -- ----------------------------
 ALTER TABLE "HXX"."Treatment" ADD CHECK ("Dno" IS NOT NULL);
@@ -593,10 +557,6 @@ ALTER TABLE "HXX"."Treatment" ADD CHECK ("Pno" IS NOT NULL);
 -- Primary Key structure for table Treatment
 -- ----------------------------
 ALTER TABLE "HXX"."Treatment" ADD PRIMARY KEY ("Dno");
-
--- ----------------------------
--- Indexes structure for table Urine
--- ----------------------------
 
 -- ----------------------------
 -- Triggers structure for table Urine
